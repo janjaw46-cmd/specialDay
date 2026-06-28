@@ -426,6 +426,39 @@
             z-index: 999;
         }
 
+        /* scroll to top button */
+        #toTopBtn {
+            position: fixed;
+            bottom: 2rem;
+            right: 1.5rem;
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            background: var(--gold);
+            color: #1A1916;
+            border: none;
+            font-size: 1.2rem;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(10px);
+            transition: opacity 0.3s ease, transform 0.3s ease, visibility 0.3s, background 0.2s;
+            z-index: 9999;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.25);
+        }
+
+        #toTopBtn.show {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+
+        #toTopBtn:hover { background: #FFD9A0; }
+        #toTopBtn:active { transform: scale(0.93); }
+
         @media (prefers-reduced-motion: reduce) {
             *, *::before, *::after { animation: none !important; transition: none !important; }
         }
@@ -438,6 +471,8 @@
 </head>
 
 <body>
+    <button id="toTopBtn" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="กลับด้านบน">▲</button>
+
     <div class="page">
 
         <div class="hero eyebrowedit handFont" id="hero"></div>
@@ -480,7 +515,7 @@
             </div>
 
             <div id="bdMessage">
-                <p style="margin-bottom: 1rem;">Happy Birthday Dev ❤️</p>
+                <p>Happy Birthday Dev ❤️</p>
             </div>
 
             <div class="stage" style="margin-top: 0.5rem;">
@@ -517,6 +552,12 @@
     </div>
 
     <script>
+        // ─── Scroll to top button ────────────────────────────────────────────────
+        const toTopBtn = document.getElementById('toTopBtn');
+        window.addEventListener('scroll', () => {
+            toTopBtn.classList.toggle('show', window.scrollY > 300);
+        });
+
         // ─── Typewriter ──────────────────────────────────────────────────────────
         const lines = [
             "This year ...",
