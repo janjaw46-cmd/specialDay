@@ -31,8 +31,7 @@
             --accent: #2563EB;
         }
 
-        html,
-        body {
+        html, body {
             min-height: 100vh;
             background: var(--bg);
             font-family: 'Inter', sans-serif;
@@ -48,17 +47,13 @@
             gap: 0;
         }
 
-        /* HERO */
         .hero {
             text-align: center;
             margin-bottom: 4rem;
             animation: fadeUp 0.6s 0.1s both;
         }
 
-        .handFont {
-            font-family: "Caveat", cursive;
-            font-weight: 600;
-        }
+        .handFont { font-family: "Caveat", cursive; font-weight: 600; }
 
         .eyebrowedit {
             font-size: 11px;
@@ -80,13 +75,8 @@
             animation: blink 0.7s step-end infinite;
         }
 
-        @keyframes blink {
-            50% {
-                border-color: transparent;
-            }
-        }
+        @keyframes blink { 50% { border-color: transparent; } }
 
-        /* MAIN CONTENT (hidden until typewriter done) */
         #mainContent {
             width: 100%;
             display: flex;
@@ -102,7 +92,6 @@
             animation: fadeUp 0.7s ease forwards;
         }
 
-        /* SCENE HINT */
         .scene-hint {
             font-size: 1rem;
             color: whitesmoke;
@@ -112,7 +101,6 @@
             font-weight: 800;
         }
 
-        /* CARD / FRAME */
         .card {
             text-align: center;
             margin: 20px auto;
@@ -130,22 +118,15 @@
             width: 100%;
         }
 
-        .frame img,
-        .frame video {
+        .frame img, .frame video {
             width: 100%;
             display: block;
             transition: opacity 0.5s ease;
         }
 
-        .frame img.fade-out {
-            opacity: 0;
-        }
+        .frame img.fade-out { opacity: 0; }
+        .frame img.fade-in  { opacity: 1; }
 
-        .frame img.fade-in {
-            opacity: 1;
-        }
-
-        /* ── VIDEO CARD (hidden by default) ── */
         #videoCard {
             text-align: center;
             margin: 20px auto;
@@ -162,11 +143,6 @@
             transform: translateY(0);
         }
 
-        #videoCard .scene-hint {
-            margin-bottom: 0.5rem;
-        }
-
-        /* BUTTONS */
         .wish-btn {
             position: absolute;
             bottom: 0;
@@ -181,9 +157,7 @@
             transition: background 0.3s;
         }
 
-        .wish-btn:hover {
-            background: #1A3263;
-        }
+        .wish-btn:hover { background: #1A3263; }
 
         .candle-btn {
             position: absolute;
@@ -214,22 +188,13 @@
             transform: translate(-50%, -50%) scale(1);
         }
 
-        /* FAN */
         .stage {
             display: flex;
             flex-direction: column;
             align-items: center;
-            gap: 2.5rem;
+            gap: 0.75rem;
             width: 100%;
             max-width: 480px;
-        }
-
-        .hint-text {
-            font-size: 1rem;
-            color:#FFC570 ;
-            text-align: center;
-            min-height: 20px;
-            transition: color 0.3s;
         }
 
         .fan-wrap {
@@ -250,19 +215,17 @@
             border: 0.5px solid var(--border-strong);
             background: var(--white);
             transform-origin: bottom center;
-            transition: transform 0.42s cubic-bezier(.4, 0, .2, 1), opacity 0.45s ease, box-shadow 0.2s;
+            transition: transform 0.42s cubic-bezier(.4,0,.2,1), opacity 0.45s ease, box-shadow 0.2s;
             display: flex;
             align-items: center;
             justify-content: center;
             flex-direction: column;
             gap: 8px;
             user-select: none;
-            box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
+            box-shadow: 0 2px 12px rgba(0,0,0,0.06);
         }
 
-        .fan-wrap .c .c-icon {
-            font-size: 32px;
-        }
+        .fan-wrap .c .c-icon { font-size: 32px; }
 
         .fan-wrap .c .c-icon img {
             width: 52px;
@@ -278,70 +241,26 @@
             color: var(--ink-muted);
         }
 
-        .fan-wrap.idle .c:nth-child(1) {
-            transform: rotate(-32deg);
-            z-index: 1;
-        }
+        .fan-wrap.idle .c:nth-child(1) { transform: rotate(-32deg); z-index: 1; }
+        .fan-wrap.idle .c:nth-child(2) { transform: rotate(-16deg); z-index: 2; }
+        .fan-wrap.idle .c:nth-child(3) { transform: rotate(0deg);   z-index: 3; }
+        .fan-wrap.idle .c:nth-child(4) { transform: rotate(16deg);  z-index: 2; }
+        .fan-wrap.idle .c:nth-child(5) { transform: rotate(32deg);  z-index: 1; }
 
-        .fan-wrap.idle .c:nth-child(2) {
-            transform: rotate(-16deg);
-            z-index: 2;
-        }
+        .fan-wrap.spread .c:nth-child(1) { transform: rotate(-52deg) translateY(-22px); z-index: 1; }
+        .fan-wrap.spread .c:nth-child(2) { transform: rotate(-26deg) translateY(-12px); z-index: 2; }
+        .fan-wrap.spread .c:nth-child(3) { transform: rotate(0deg)   translateY(-7px);  z-index: 3; }
+        .fan-wrap.spread .c:nth-child(4) { transform: rotate(26deg)  translateY(-12px); z-index: 2; }
+        .fan-wrap.spread .c:nth-child(5) { transform: rotate(52deg)  translateY(-22px); z-index: 1; }
 
-        .fan-wrap.idle .c:nth-child(3) {
-            transform: rotate(0deg);
-            z-index: 3;
-        }
-
-        .fan-wrap.idle .c:nth-child(4) {
-            transform: rotate(16deg);
-            z-index: 2;
-        }
-
-        .fan-wrap.idle .c:nth-child(5) {
-            transform: rotate(32deg);
-            z-index: 1;
-        }
-
-        .fan-wrap.spread .c:nth-child(1) {
-            transform: rotate(-52deg) translateY(-22px);
-            z-index: 1;
-        }
-
-        .fan-wrap.spread .c:nth-child(2) {
-            transform: rotate(-26deg) translateY(-12px);
-            z-index: 2;
-        }
-
-        .fan-wrap.spread .c:nth-child(3) {
-            transform: rotate(0deg) translateY(-7px);
-            z-index: 3;
-        }
-
-        .fan-wrap.spread .c:nth-child(4) {
-            transform: rotate(26deg) translateY(-12px);
-            z-index: 2;
-        }
-
-        .fan-wrap.spread .c:nth-child(5) {
-            transform: rotate(52deg) translateY(-22px);
-            z-index: 1;
-        }
-
-        .fan-wrap .c.read {
-            opacity: 0.22;
-            pointer-events: none;
-        }
+        .fan-wrap .c.read { opacity: 0.22; pointer-events: none; }
 
         .fan-wrap.spread .c:not(.read):hover {
-            box-shadow: 0 0 0 2.5px var(--accent), 0 4px 20px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 0 0 2.5px var(--accent), 0 4px 20px rgba(0,0,0,0.1);
             z-index: 20 !important;
         }
 
-        /* MSG CARD */
-        .msg-area {
-            width: 100%;
-        }
+        .msg-area { width: 100%; }
 
         .msg-card {
             background: var(--white);
@@ -353,8 +272,9 @@
             gap: 1rem;
             opacity: 0;
             transform: translateY(14px);
-            transition: opacity 0.38s ease, transform 0.38s ease;
+            transition: opacity 0.38s ease, transform 0.38s ease, box-shadow 0.2s ease;
             pointer-events: none;
+            cursor: grab;
         }
 
         .msg-card.visible {
@@ -362,6 +282,34 @@
             transform: translateY(0);
             pointer-events: auto;
         }
+
+        .msg-card.paused {
+            box-shadow: 0 0 0 3px var(--gold);
+            cursor: grabbing;
+        }
+
+        .pause-label {
+            position: absolute;
+            top: 110%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: rgba(255, 197, 112, 0.92);
+            color: #1A1916;
+            font-size: 0.8rem;
+            font-weight: 600;
+            letter-spacing: 0.08em;
+            padding: 4px 12px;
+            border-radius: 20px;
+            pointer-events: none;
+            opacity: 0;
+            transition: opacity 0.2s ease;
+            white-space: nowrap;
+        }
+
+        .msg-card-wrap { position: relative; }
+
+        .msg-card.paused + .pause-label,
+        .msg-card-wrap .pause-label.show { opacity: 1; }
 
         .msg-top {
             display: flex;
@@ -381,11 +329,7 @@
             flex-shrink: 0;
         }
 
-        .msg-title {
-            font-size: 16px;
-            font-weight: 500;
-            color: var(--ink);
-        }
+        .msg-title { font-size: 16px; font-weight: 500; color: var(--ink); }
 
         .msg-body {
             font-family: 'Playfair Display', serif;
@@ -405,7 +349,7 @@
         .pbar-wrap {
             margin-top: 0.25rem;
             height: 2px;
-            background: rgba(0, 0, 0, 0.07);
+            background: rgba(0,0,0,0.07);
             border-radius: 2px;
             overflow: hidden;
         }
@@ -426,25 +370,13 @@
             font-weight: 500;
         }
 
-        .progress.done {
-            color: var(--gold);
-            font-weight: 500;
-            font-size: 1rem;
-        }
+        .progress.done { color: var(--gold); font-weight: 500; font-size: 1rem; }
 
         @keyframes fadeUp {
-            from {
-                opacity: 0;
-                transform: translateY(16px);
-            }
-
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
+            from { opacity: 0; transform: translateY(16px); }
+            to   { opacity: 1; transform: translateY(0); }
         }
 
-        /* ── scene 3 : gift box ── */
         #giftCard {
             text-align: center;
             margin: 20px auto;
@@ -455,27 +387,12 @@
             transition: opacity 0.6s ease, transform 0.6s ease, visibility 0.6s;
         }
 
-        #giftCard.visible {
-            opacity: 1;
-            visibility: visible;
-            transform: translateY(0);
-        }
+        #giftCard.visible { opacity: 1; visibility: visible; transform: translateY(0); }
 
-        /* รูปในกล่องของขวัญ — คลิกได้ */
-        #giftImage {
-            cursor: pointer;
-            transition: transform 0.15s ease;
-        }
+        #giftImage { cursor: pointer; transition: transform 0.15s ease; }
+        #giftImage:hover  { transform: scale(1.03); }
+        #giftImage:active { transform: scale(0.97); }
 
-        #giftImage:hover {
-            transform: scale(1.03);
-        }
-
-        #giftImage:active {
-            transform: scale(0.97);
-        }
-
-        /* ── Happy Birthday message ── */
         #bdMessage {
             opacity: 0;
             visibility: hidden;
@@ -485,11 +402,7 @@
             margin: 1.5rem 0 0.5rem;
         }
 
-        #bdMessage.visible {
-            opacity: 1;
-            visibility: visible;
-            transform: translateY(0);
-        }
+        #bdMessage.visible { opacity: 1; visibility: visible; transform: translateY(0); }
 
         #bdMessage p {
             font-family: 'Playfair Display', serif;
@@ -498,27 +411,28 @@
             letter-spacing: 0.02em;
         }
 
-        @media (prefers-reduced-motion: reduce) {
+        @keyframes floatNote {
+            0%   { opacity: 0; transform: translateY(0) scale(0.8); }
+            20%  { opacity: 1; }
+            80%  { opacity: 0.8; }
+            100% { opacity: 0; transform: translateY(-60px) scale(1.1); }
+        }
 
-            *,
-            *::before,
-            *::after {
-                animation: none !important;
-                transition: none !important;
-            }
+        .music-note {
+            position: fixed;
+            font-size: 1.4rem;
+            pointer-events: none;
+            animation: floatNote 1.8s ease-out forwards;
+            z-index: 999;
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            *, *::before, *::after { animation: none !important; transition: none !important; }
         }
 
         @media (max-width: 420px) {
-            .fan-wrap {
-                width: 240px;
-                height: 280px;
-            }
-
-            .fan-wrap .c {
-                width: 104px;
-                margin-left: -52px;
-                height: 152px;
-            }
+            .fan-wrap { width: 240px; height: 280px; }
+            .fan-wrap .c { width: 104px; margin-left: -52px; height: 152px; }
         }
     </style>
 </head>
@@ -526,13 +440,10 @@
 <body>
     <div class="page">
 
-        <!-- typewriter hero -->
         <div class="hero eyebrowedit handFont" id="hero"></div>
 
-        <!-- main content (revealed after typewriter) -->
         <div id="mainContent">
 
-            <!-- scene 1 : cake slideshow -->
             <p class="scene-hint" id="sceneHint">📢 Click the button to make a wish !</p>
             <div class="card">
                 <div class="frame">
@@ -546,21 +457,21 @@
                 <source src="./src/audio/hbd.mp3" type="audio/mpeg">
             </audio>
 
-            <!-- ── scene 2 : countdown video (hidden until slideshow done) ── -->
+            <audio id="cardMusic" loop>
+                <source src="./src/audio/bgmusic.mp3" type="audio/mpeg">
+            </audio>
+
             <div id="videoCard">
                 <p class="scene-hint" id="videoHint">🎉 And now... a little something for you !</p>
                 <div class="card">
                     <div class="frame">
-                        <video id="countdownVideo" src="./src/image/countdown.mp4" controls playsinline
-                            preload="metadata">
-                        </video>
+                        <video id="countdownVideo" src="./src/image/countdown.mp4" controls playsinline preload="metadata"></video>
                     </div>
                 </div>
             </div>
 
-            <!-- ── scene 3 : gift box (hidden until video ends) ── -->
             <div id="giftCard">
-                <p class="scene-hint" id="giftHint">🎁 Here's a special gift for you ! </br> tap to unwrap !</p>
+                <p class="scene-hint" id="giftHint">🎁 Here's a special gift for you !<br>tap to unwrap !</p>
                 <div class="card">
                     <div class="frame">
                         <img id="giftImage" src="./src/image/gift_box.png" alt="Gift" onclick="unwrapGift()">
@@ -568,50 +479,45 @@
                 </div>
             </div>
 
-            <!-- ── Happy Birthday message ── -->
             <div id="bdMessage">
-                <p>Happy Birthday Dev ❤️</p>
+                <p style="margin-bottom: 1rem;">Happy Birthday Dev ❤️</p>
             </div>
 
-            <!-- fan cards -->
-            <div class="stage" style="margin-top: 2rem;">
+            <div class="stage" style="margin-top: 0.5rem;">
                 <p class="scene-hint" id="hint">📢 hover to spread cards · click a card to read a message</p>
-                <!-- วางเมาส์เพื่อแผ่ไพ่ · เลือกไพ่เพื่ออ่านข้อความ -->
                 <div class="fan-wrap idle" id="fan" onmouseenter="spreadFan()" onmouseleave="foldFan()">
-                    <div class="c" onclick="pick(0)"><span class="c-icon"><img src="./src/image/foryou.jpeg"
-                                alt="Mom"></span><span class="c-num">01</span></div>
-                    <div class="c" onclick="pick(1)"><span class="c-icon"><img src="./src/image/foryou.jpeg"
-                                alt="Dad"></span><span class="c-num">02</span></div>
-                    <div class="c" onclick="pick(2)"><span class="c-icon"><img src="./src/image/foryou.jpeg"
-                                alt="Gigi"></span><span class="c-num">03</span></div>
-                    <div class="c" onclick="pick(3)"><span class="c-icon"><img src="./src/image/foryou.jpeg"
-                                alt="Jennie"></span><span class="c-num">04</span></div>
-                    <div class="c" onclick="pick(4)"><span class="c-icon"><img src="./src/image/foryou.jpeg"
-                                alt="Janjao"></span><span class="c-num">05</span></div>
+                    <div class="c" onclick="pick(0)"><span class="c-icon"><img src="./src/image/foryou.jpeg" alt="Mom"></span><span class="c-num">01</span></div>
+                    <div class="c" onclick="pick(1)"><span class="c-icon"><img src="./src/image/foryou.jpeg" alt="Dad"></span><span class="c-num">02</span></div>
+                    <div class="c" onclick="pick(2)"><span class="c-icon"><img src="./src/image/foryou.jpeg" alt="Gigi"></span><span class="c-num">03</span></div>
+                    <div class="c" onclick="pick(3)"><span class="c-icon"><img src="./src/image/foryou.jpeg" alt="Jennie"></span><span class="c-num">04</span></div>
+                    <div class="c" onclick="pick(4)"><span class="c-icon"><img src="./src/image/foryou.jpeg" alt="Janjao"></span><span class="c-num">05</span></div>
                 </div>
 
                 <div class="msg-area">
-                    <div class="msg-card" id="msgCard">
-                        <div class="msg-top">
-                            <div class="msg-icon-wrap" id="msgIcon"></div>
-                            <span class="msg-title" id="msgTitle"></span>
+                    <div class="msg-card-wrap">
+                        <div class="msg-card" id="msgCard">
+                            <div class="msg-top">
+                                <div class="msg-icon-wrap" id="msgIcon"></div>
+                                <span class="msg-title" id="msgTitle"></span>
+                            </div>
+                            <p class="msg-body" id="msgBody"></p>
+                            <p class="msg-from" id="msgFrom"></p>
+                            <div class="pbar-wrap">
+                                <div class="pbar-fill" id="pFill"></div>
+                            </div>
                         </div>
-                        <p class="msg-body" id="msgBody"></p>
-                        <p class="msg-from" id="msgFrom"></p>
-                        <div class="pbar-wrap">
-                            <div class="pbar-fill" id="pFill"></div>
-                        </div>
+                        <span class="pause-label" id="pauseLabel">⏸ hold to pause</span>
                     </div>
                 </div>
 
                 <p class="progress" id="progress"></p>
             </div>
 
-        </div><!-- /#mainContent -->
+        </div>
     </div>
 
     <script>
-        // ─── Typewriter → reveal mainContent ────────────────────────────────────
+        // ─── Typewriter ──────────────────────────────────────────────────────────
         const lines = [
             "This year ...",
             "29 June 2026",
@@ -621,18 +527,15 @@
 
         function typeWriter() {
             if (lineIdx >= lines.length) { revealContent(); return; }
-
             if (charIdx === 0) {
                 const p = document.createElement("p");
                 p.className = "line";
                 p.id = "line" + lineIdx;
                 document.getElementById("hero").appendChild(p);
             }
-
             const currentLine = document.getElementById("line" + lineIdx);
             currentLine.innerHTML = lines[lineIdx].substring(0, charIdx + 1) + '<span class="cursor"></span>';
             charIdx++;
-
             if (charIdx < lines[lineIdx].length) {
                 setTimeout(typeWriter, 100);
             } else {
@@ -648,7 +551,7 @@
 
         typeWriter();
 
-        // ─── Scene 1 : image slideshow ──────────────────────────────────────────
+        // ─── Scene 1 : slideshow ─────────────────────────────────────────────────
         const images = [
             "./src/image/P1.1.jpeg",
             "./src/image/P1.2.png",
@@ -667,10 +570,8 @@
 
         function changeImage() {
             if (current >= images.length - 1) return;
-
             const img = document.getElementById("cardImage");
             img.classList.add("fade-out");
-
             setTimeout(() => {
                 current++;
                 img.src = images[current];
@@ -678,25 +579,17 @@
                 img.classList.add("fade-in");
                 setTimeout(() => img.classList.remove("fade-in"), 500);
 
-                // ── รูปสุดท้าย → รอเพลง HBD จบก่อน แล้ว fade video เข้ามา ──
                 if (current >= images.length - 1) {
                     document.getElementById("candleBtn").style.display = "none";
                     document.getElementById("sceneHint").textContent = "🎂 HBD !";
-
                     const audio = document.getElementById("hbd");
 
                     function showVideo() {
                         const vc = document.getElementById("videoCard");
                         vc.classList.add("visible");
-
-                        // auto-play video (browser อาจ block ถ้าไม่มี muted)
                         const vid = document.getElementById("countdownVideo");
-                        vid.play().catch(() => { });
-
-                        // scroll ไปที่ video
+                        vid.play().catch(() => {});
                         vc.scrollIntoView({ behavior: "smooth", block: "start" });
-
-                        // รอ video จบ → แสดง giftCard
                         vid.addEventListener("ended", showGift, { once: true });
                     }
 
@@ -706,13 +599,8 @@
                         gc.scrollIntoView({ behavior: "smooth", block: "start" });
                     }
 
-                    if (audio.paused || audio.ended) {
-                        // เพลงหยุดแล้ว (กรณี edge) → แสดงเลย
-                        showVideo();
-                    } else {
-                        // รอ event ended → แสดง
-                        audio.addEventListener("ended", showVideo, { once: true });
-                    }
+                    if (audio.paused || audio.ended) { showVideo(); }
+                    else { audio.addEventListener("ended", showVideo, { once: true }); }
                 }
             }, 500);
         }
@@ -723,54 +611,101 @@
         function unwrapGift() {
             if (unwrapped) return;
             unwrapped = true;
-
             const img = document.getElementById("giftImage");
             img.classList.add("fade-out");
-
             setTimeout(() => {
                 img.src = "./src/image/art_toy.png";
                 img.alt = "Art Toy";
                 img.classList.remove("fade-out");
                 img.classList.add("fade-in");
                 setTimeout(() => img.classList.remove("fade-in"), 500);
-
                 document.getElementById("giftHint").textContent = "🎨 Surprise ! 🎉";
                 img.style.cursor = "default";
 
-                // แสดงข้อความ Happy Birthday หลัง unwrap
+                // แสดง Happy Birthday message
                 setTimeout(() => {
                     const msg = document.getElementById("bdMessage");
                     msg.classList.add("visible");
                     msg.scrollIntoView({ behavior: "smooth", block: "center" });
+
+                    // ── เลื่อนไปซีนไพ่อัตโนมัติหลัง 2.5 วินาที ──
+                    setTimeout(() => {
+                        document.querySelector('.stage').scrollIntoView({ behavior: "smooth", block: "start" });
+                    }, 2500);
+
                 }, 600);
             }, 400);
         }
 
         // ─── Fan cards ──────────────────────────────────────────────────────────
         const CARDS = [
-            { img: './src/image/foryou.jpeg', title: 'Birthday wish 🐣', body: 'Wishing you good health and happiness', from: 'Mom' },
-            { img: './src/image/foryou.jpeg', title: 'Birthday wish 🐱', body: 'Wishing you a day filled with joy and laughter', from: 'Dad' },
-            { img: './src/image/foryou.jpeg', title: 'Birthday wish 🐞', body: 'May all your dreams come true', from: 'Gigi' },
-            { img: './src/image/foryou.jpeg', title: 'Birthday wish 🦜', body: 'Wishing you strength and happiness every day', from: 'Jennie' },
-            { img: './src/image/foryou.jpeg', title: 'Birthday wish 🐋', body: 'May you be surrounded by love and laughter', from: 'Janjao' },
+            { img: './src/image/foryou.jpeg', title: 'Birthday wish 🐣', body: 'Happy Birthday! 🎉 Hope you have the best birthday ever! Wishing you lots of happiness and success.', from: 'From Mom' },
+            { img: './src/image/foryou.jpeg', title: 'Birthday wish 🐱', body: 'Happy Birthday! 🎂 Wishing you all the happiness, love, and success you deserve. on your special day! ❤️', from: 'From Dad' },
+            { img: './src/image/foryou.jpeg', title: 'Birthday wish 🐞', body: 'Happy Birthday, babe! 🥳❤️ I hope your day is filled with happiness, laughter, and everything you love. Thank you for being such an incredible person. Wishing you an amazing year ahead. I love you, babe.✨🎉', from: 'From Gigi' },
+            { img: './src/image/foryou.jpeg', title: 'Birthday wish 🦜', body: 'Happy Birthday! 🎉 Wishing you good health, happiness, success, and all the best in the year ahead.', from: 'From Jennie' },
+            { img: './src/image/foryou.jpeg', title: 'Birthday wish 🐋', body: 'Happy Birthday! 🎂 Wishing you all the happiness and success in the year ahead. Have a great day!', from: 'From Janjao' },
         ];
 
         const READ_DELAY = 6500;
         let busy = false, readCount = 0;
 
-        const fan = document.getElementById('fan');
-        const msgCard = document.getElementById('msgCard');
-        const msgIcon = document.getElementById('msgIcon');
-        const msgTitle = document.getElementById('msgTitle');
-        const msgBody = document.getElementById('msgBody');
-        const msgFrom = document.getElementById('msgFrom');
-        const pFill = document.getElementById('pFill');
-        const progress = document.getElementById('progress');
-        const hint = document.getElementById('hint');
+        const fan        = document.getElementById('fan');
+        const msgCard    = document.getElementById('msgCard');
+        const msgIcon    = document.getElementById('msgIcon');
+        const msgTitle   = document.getElementById('msgTitle');
+        const msgBody    = document.getElementById('msgBody');
+        const msgFrom    = document.getElementById('msgFrom');
+        const pFill      = document.getElementById('pFill');
+        const progress   = document.getElementById('progress');
+        const hint       = document.getElementById('hint');
+        const pauseLabel = document.getElementById('pauseLabel');
+
+        // ─── Music notes ─────────────────────────────────────────────────────────
+        const NOTES = ['♪', '♫', '♬', '♩'];
+        let noteTimer = null;
+
+        function spawnNote() {
+            const note = document.createElement('span');
+            note.className = 'music-note';
+            note.textContent = NOTES[Math.floor(Math.random() * NOTES.length)];
+            note.style.left  = (20 + Math.random() * (window.innerWidth - 60)) + 'px';
+            note.style.top   = (window.innerHeight * 0.4 + Math.random() * window.innerHeight * 0.4) + 'px';
+            note.style.color = `hsl(${30 + Math.random() * 30}, 90%, 70%)`;
+            document.body.appendChild(note);
+            setTimeout(() => note.remove(), 1900);
+        }
+
+        function startNotes() { spawnNote(); noteTimer = setInterval(spawnNote, 400); }
+        function stopNotes()  { clearInterval(noteTimer); noteTimer = null; }
+
+        // ─── Audio helpers ────────────────────────────────────────────────────────
+        function fadeIn(audio, duration) {
+            audio.volume = 0;
+            audio.play().catch(() => {});
+            const step = 50, inc = step / duration;
+            const t = setInterval(() => {
+                audio.volume = Math.min(1, audio.volume + inc);
+                if (audio.volume >= 1) clearInterval(t);
+            }, step);
+        }
+
+        function fadeOut(audio, duration, cb) {
+            const step = 50, dec = step / duration;
+            const t = setInterval(() => {
+                audio.volume = Math.max(0, audio.volume - dec);
+                if (audio.volume <= 0) {
+                    clearInterval(t);
+                    audio.pause();
+                    audio.currentTime = 0;
+                    if (cb) cb();
+                }
+            }, step);
+        }
 
         function spreadFan() { fan.classList.replace('idle', 'spread'); }
-        function foldFan() { if (!busy) fan.classList.replace('spread', 'idle'); }
+        function foldFan()   { if (!busy) fan.classList.replace('spread', 'idle'); }
 
+        // ─── Pick card ───────────────────────────────────────────────────────────
         function pick(i) {
             if (busy) return;
             const cardEls = fan.querySelectorAll('.c');
@@ -781,26 +716,80 @@
             fan.classList.replace('spread', 'idle');
             hint.textContent = 'Opening…';
 
+            const cardMusic = document.getElementById('cardMusic');
+            cardMusic.currentTime = 0;
+            fadeIn(cardMusic, 800);
+            startNotes();
+
             const d = CARDS[i];
-            msgIcon.innerHTML = `<img src="${d.img}" alt="${d.title}" style="width:100%;height:100%;object-fit:cover;border-radius:50%;">`;
+            msgIcon.innerHTML    = `<img src="${d.img}" alt="${d.title}" style="width:100%;height:100%;object-fit:cover;border-radius:50%;">`;
             msgTitle.textContent = d.title;
-            msgBody.innerHTML = d.body.replace(/\n/g, '<br>');
-            msgFrom.textContent = d.from;
+            msgBody.innerHTML    = d.body.replace(/\n/g, '<br>');
+            msgFrom.textContent  = d.from;
 
             msgCard.classList.add('visible');
 
-            pFill.style.transition = 'none';
-            pFill.style.transform = 'scaleX(1)';
-            requestAnimationFrame(() => requestAnimationFrame(() => {
-                pFill.style.transition = `transform ${READ_DELAY}ms linear`;
-                pFill.style.transform = 'scaleX(0)';
-            }));
+            pauseLabel.textContent = '⏸ hold to pause';
+            pauseLabel.classList.add('show');
+            setTimeout(() => pauseLabel.classList.remove('show'), 2200);
 
-            setTimeout(() => {
+            let remaining = READ_DELAY;
+            let pausedAt  = null;
+            let endTimer  = null;
+            let isPaused  = false;
+
+            function startBar(ms) {
+                pFill.style.transition = 'none';
+                const cur = getComputedStyle(pFill).transform;
+                pFill.style.transform = cur === 'none' ? 'scaleX(1)' : cur;
+                requestAnimationFrame(() => requestAnimationFrame(() => {
+                    pFill.style.transition = `transform ${ms}ms linear`;
+                    pFill.style.transform  = 'scaleX(0)';
+                }));
+                endTimer = setTimeout(finishCard, ms);
+            }
+
+            function pauseCard() {
+                if (isPaused) return;
+                isPaused = true;
+                pausedAt = Date.now();
+                const cur = getComputedStyle(pFill).transform;
+                pFill.style.transition = 'none';
+                pFill.style.transform  = cur;
+                clearTimeout(endTimer);
+                fadeOut(cardMusic, 300);
+                stopNotes();
+                msgCard.classList.add('paused');
+                pauseLabel.textContent = '⏸ paused — release to continue';
+                pauseLabel.classList.add('show');
+            }
+
+            function resumeCard() {
+                if (!isPaused) return;
+                isPaused = false;
+                remaining -= Date.now() - pausedAt;
+                pausedAt = null;
+                fadeIn(cardMusic, 300);
+                startNotes();
+                msgCard.classList.remove('paused');
+                pauseLabel.textContent = '▶ resuming…';
+                setTimeout(() => pauseLabel.classList.remove('show'), 900);
+                startBar(remaining);
+            }
+
+            function finishCard() {
                 el.classList.add('read');
                 readCount++;
                 msgCard.classList.remove('visible');
-
+                msgCard.classList.remove('paused');
+                pauseLabel.classList.remove('show');
+                fadeOut(cardMusic, 700);
+                stopNotes();
+                msgCard.removeEventListener('mousedown',  pauseCard);
+                msgCard.removeEventListener('touchstart', pauseCard);
+                msgCard.removeEventListener('mouseup',    resumeCard);
+                msgCard.removeEventListener('mouseleave', resumeCard);
+                msgCard.removeEventListener('touchend',   resumeCard);
                 const left = CARDS.length - readCount;
                 if (left > 0) {
                     progress.textContent = `Opened ${readCount} cards · ${left} left`;
@@ -811,7 +800,17 @@
                     hint.textContent = '';
                 }
                 busy = false;
-            }, READ_DELAY);
+            }
+
+            msgCard.addEventListener('mousedown',  pauseCard);
+            msgCard.addEventListener('touchstart', pauseCard, { passive: true });
+            msgCard.addEventListener('mouseup',    resumeCard);
+            msgCard.addEventListener('mouseleave', resumeCard);
+            msgCard.addEventListener('touchend',   resumeCard);
+
+            pFill.style.transition = 'none';
+            pFill.style.transform  = 'scaleX(1)';
+            startBar(remaining);
         }
     </script>
 </body>
