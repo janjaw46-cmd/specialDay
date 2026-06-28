@@ -241,12 +241,6 @@
             color: var(--ink-muted);
         }
 
-        .fan-wrap.idle .c:nth-child(1) { transform: rotate(-32deg); z-index: 1; }
-        .fan-wrap.idle .c:nth-child(2) { transform: rotate(-16deg); z-index: 2; }
-        .fan-wrap.idle .c:nth-child(3) { transform: rotate(0deg);   z-index: 3; }
-        .fan-wrap.idle .c:nth-child(4) { transform: rotate(16deg);  z-index: 2; }
-        .fan-wrap.idle .c:nth-child(5) { transform: rotate(32deg);  z-index: 1; }
-
         .fan-wrap.spread .c:nth-child(1) { transform: rotate(-52deg) translateY(-22px); z-index: 1; }
         .fan-wrap.spread .c:nth-child(2) { transform: rotate(-26deg) translateY(-12px); z-index: 2; }
         .fan-wrap.spread .c:nth-child(3) { transform: rotate(0deg)   translateY(-7px);  z-index: 3; }
@@ -254,6 +248,32 @@
         .fan-wrap.spread .c:nth-child(5) { transform: rotate(52deg)  translateY(-22px); z-index: 1; }
 
         .fan-wrap .c.read { opacity: 0.22; pointer-events: none; }
+
+        /* hidden until scrolled into view */
+        .fan-wrap .c {
+            opacity: 0;
+            transform: translateY(30px) rotate(0deg);
+        }
+
+        .fan-wrap.cards-ready.idle .c:nth-child(1) { opacity: 1; transform: rotate(-32deg); }
+        .fan-wrap.cards-ready.idle .c:nth-child(2) { opacity: 1; transform: rotate(-16deg); }
+        .fan-wrap.cards-ready.idle .c:nth-child(3) { opacity: 1; transform: rotate(0deg);   }
+        .fan-wrap.cards-ready.idle .c:nth-child(4) { opacity: 1; transform: rotate(16deg);  }
+        .fan-wrap.cards-ready.idle .c:nth-child(5) { opacity: 1; transform: rotate(32deg);  }
+
+        .fan-wrap.cards-ready.spread .c:nth-child(1) { opacity: 1; transform: rotate(-52deg) translateY(-22px); }
+        .fan-wrap.cards-ready.spread .c:nth-child(2) { opacity: 1; transform: rotate(-26deg) translateY(-12px); }
+        .fan-wrap.cards-ready.spread .c:nth-child(3) { opacity: 1; transform: rotate(0deg)   translateY(-7px);  }
+        .fan-wrap.cards-ready.spread .c:nth-child(4) { opacity: 1; transform: rotate(26deg)  translateY(-12px); }
+        .fan-wrap.cards-ready.spread .c:nth-child(5) { opacity: 1; transform: rotate(52deg)  translateY(-22px); }
+
+        .fan-wrap.cards-ready .c:nth-child(1) { transition: opacity 0.5s 0.0s ease, transform 0.42s 0.0s cubic-bezier(.4,0,.2,1), box-shadow 0.2s; }
+        .fan-wrap.cards-ready .c:nth-child(2) { transition: opacity 0.5s 0.1s ease, transform 0.42s 0.1s cubic-bezier(.4,0,.2,1), box-shadow 0.2s; }
+        .fan-wrap.cards-ready .c:nth-child(3) { transition: opacity 0.5s 0.2s ease, transform 0.42s 0.2s cubic-bezier(.4,0,.2,1), box-shadow 0.2s; }
+        .fan-wrap.cards-ready .c:nth-child(4) { transition: opacity 0.5s 0.3s ease, transform 0.42s 0.3s cubic-bezier(.4,0,.2,1), box-shadow 0.2s; }
+        .fan-wrap.cards-ready .c:nth-child(5) { transition: opacity 0.5s 0.4s ease, transform 0.42s 0.4s cubic-bezier(.4,0,.2,1), box-shadow 0.2s; }
+
+        .fan-wrap.cards-ready .c.read { opacity: 0.22; }
 
         .fan-wrap.spread .c:not(.read):hover {
             box-shadow: 0 0 0 2.5px var(--accent), 0 4px 20px rgba(0,0,0,0.1);
@@ -552,6 +572,17 @@
     </div>
 
     <script>
+        // ─── Reveal fan cards on scroll ──────────────────────────────────────────
+        const fanObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    fan.classList.add('cards-ready');
+                    fanObserver.disconnect();
+                }
+            });
+        }, { threshold: 0.3 });
+        fanObserver.observe(document.getElementById('fan'));
+
         // ─── Scroll to top button ────────────────────────────────────────────────
         const toTopBtn = document.getElementById('toTopBtn');
         window.addEventListener('scroll', () => {
